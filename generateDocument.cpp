@@ -3,6 +3,10 @@ using namespace std;
 
 
 // time=O(c+d) and space=O(c)
+
+//one approach will be finding count of each character of document and for each character
+//will count that character in the character string and if both will be equal, then exist other wise not exist
+//so time=O(d*(d+c)) and space=O(1) 
 bool generateDocument(string &characters,string &document){
     map<char,int> freq;
     for(auto c:characters){
@@ -20,8 +24,6 @@ bool generateDocument(string &characters,string &document){
         }
     }
     return true;
-
-
 }
 
 
