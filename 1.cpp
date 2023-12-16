@@ -2,27 +2,7 @@
 using namespace std;
 
 
-// time=O(c+d) and space=O(c)
-bool generateDocument(string &characters,string &document){
-    map<char,int> freq;
-    for(auto c:characters){
-        if(freq[c]){
-            freq[c]+=1;
-        }else{
-            freq[c]=1;
-        }
-    }
-    for(auto d:document){
-        if(freq[d]){
-            freq[d]-=1;
-        }else{
-            return false;
-        }
-    }
-    return true;
 
-
-}
 
 
 
@@ -31,16 +11,42 @@ int main(){
     freopen("input.txt","r",stdin);
     freopen("output.txt","w",stdout);
     #endif
-    string document="abcdd";
-    string characters="abcd";
-    if(generateDocument(characters,document)){
-        cout<<"Document can be made"<<endl;
-    }else{
-        cout<<"Document can not be made"<<endl;
-    }
+    int num;
+    
+    
+
+
+    std::vector<int> inputArray = {1, 2, 3, 4, 5};
+
+    // Copy the variable from the input array
+    int variable = inputArray[2];
+
+    // Display the initial values
+    std::cout << "Original values:" << std::endl;
+    std::cout << "inputArray[2]: " << inputArray[2] << std::endl;
+    std::cout << "variable: " << variable << std::endl;
+
+    // Modify the variable
+    variable = 10;
+
+    // Display the modified values
+    std::cout << "\nAfter modifying variable:" << std::endl;
+    std::cout << "inputArray[2]: " << inputArray[2] << std::endl; // Should remain unchanged
+    std::cout << "variable: " << variable << std::endl;
+
+    // Modify the variable in the input array
+    inputArray[2] = 20;
+
+    // Display the values after modifying the input array
+    std::cout << "\nAfter modifying inputArray:" << std::endl;
+    std::cout << "inputArray[2]: " << inputArray[2] << std::endl;
+    std::cout << "variable: " << variable << std::endl; // Should be reflected
+
+    return 0;
     
 
 
 
 }
+
 
