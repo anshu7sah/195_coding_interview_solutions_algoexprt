@@ -129,6 +129,23 @@ int nodeDepthsRecur(Node* root,int depth=0){
     }
     return depth+nodeDepthsRecur(root->right,depth+1)+nodeDepthsRecur(root->left,depth+1);
 }
+bool validatingBstHelper(Node *tree,int min,int max){
+    if(tree==nullptr){
+        return true;
+    }
+    if(tree->data<min && tree->data>=max){
+        return false;
+    }
+    bool leftIsValid=validatingBstHelper(tree->left,min,tree->data);
+    bool rightIsValid=validatingBstHelper(tree->right,tree->data,max);
+    return leftIsValid and rightIsValid;
+
+}
+
+
+bool validatingBst(Node *tree){
+    return validatingBstHelper(tree,INT_MIN,INT_MAX);
+}
 
 
 int main() {
@@ -150,13 +167,18 @@ int main() {
     a.insert(13);
     a.insert(18);
     
-    a.display(a.head);
+    // a.display(a.head);
     cout<<endl;
     // a.deleteNode(7);
     // a.display(a.head);
     cout<<endl;
     
-    cout<<nodeDepthsRecur(a.head)<<endl;
+    // cout<<nodeDepthsRecur(a.head)<<endl;
+    if(validatingBst(a.head)){
+        cout<<"Valid bst"<<endl;
+    }else{
+        cout<<"Not valid bst"<<endl;
+    }
 
 
 
